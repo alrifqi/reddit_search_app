@@ -1,0 +1,39 @@
+# Import flask and template operators
+from flask import Flask, render_template
+from flask_cors import CORS
+
+# Could import flask extensions, such as SQLAlchemy, here
+# from flask.ext.sqlalchemy import SQLAlchemy
+
+# Define WSGI object
+app = Flask(__name__)
+CORS(app)
+
+# Configurations
+app.config.from_object('config')
+
+# Some more example SQLAlchemy config
+# Define the database object which is imported by modules and controllers
+# db = SQLAlchemy(app)
+
+# HTTP error handling
+@app.errorhandler(404)
+def not_found(error):
+    return render_template('404.html'), 404
+
+# Home page view
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+
+@app.route('/map')
+def map():
+    return render_template('map.html')
+# Import modules here
+from app.mod_1 import views 
+
+
+# Build the database:
+# This will init the db
+# db.init_app(app)
