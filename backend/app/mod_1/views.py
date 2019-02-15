@@ -75,7 +75,7 @@ def reddit_subreddit():
     subreddit = []
     reddit = praw.Reddit(client_id='Ernv92ALXMZHgg',
                          client_secret='hvN9Fed5-pVmFbAH8_aTy5OSB_M',
-                         password='Alrifqi1988_',
+                         password='',
                          user_agent='testscript by /u/fakebot3',
                          username='rarex88')
     print subreddit_keys['subreddit_key'].replace('r/','')
